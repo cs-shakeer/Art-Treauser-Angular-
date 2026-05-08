@@ -1,0 +1,46 @@
+<div class="auth-container">
+  <div class="auth-card glass">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <div class="logo" style="margin: 0 auto 16px auto; width: 48px; height: 48px; font-size: 24px;">P</div>
+      <h1 style="font-size: 32px; letter-spacing: -1px;">Join Art Treasure</h1>
+      <p style="color: var(--text-muted); margin-top: 8px;">Find your next masterpiece</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Full Name</label>
+        <input type="text" class="form-control" placeholder="John Doe" [(ngModel)]="user.fullName" name="fullName" required />
+      </div>
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Username</label>
+        <input type="text" class="form-control" placeholder="johndoe123" [(ngModel)]="user.userName" name="userName" required />
+      </div>
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Email</label>
+        <input type="email" class="form-control" placeholder="john@example.com" [(ngModel)]="user.email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Mobile</label>
+        <input type="tel" class="form-control" placeholder="1234567890" [(ngModel)]="user.mobile" name="mobile" required />
+      </div>
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Password</label>
+        <input type="password" class="form-control" placeholder="Create a password" [(ngModel)]="user.password" name="password" required />
+      </div>
+      
+      <div *ngIf="errorMessage" style="color: var(--primary-color); font-size: 14px; margin-bottom: 16px; text-align: center;">
+        {{ errorMessage }}
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 24px; padding: 14px;">Continue</button>
+      </div>
+    </form>
+    
+    <div style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--text-muted);">
+      <div>
+        Already a member? <a routerLink="/login" style="color: var(--text-color); font-weight: 700;">Log in</a>
+      </div>
+    </div>
+  </div>
+</div>

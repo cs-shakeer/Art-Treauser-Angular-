@@ -1,0 +1,38 @@
+<div style="max-width: 600px; margin: 40px auto; padding: 24px;">
+  <h1 style="margin-bottom: 24px; font-size: 32px;">Create a new Pin</h1>
+  
+  <div class="glass" style="padding: 32px; border-radius: 32px;">
+    <form (ngSubmit)="onUpload()">
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Image URL</label>
+        <input type="url" class="form-control" placeholder="https://..." [(ngModel)]="pin.imageUrl" name="imageUrl" required />
+      </div>
+
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Title</label>
+        <input type="text" class="form-control" placeholder="Add a title" [(ngModel)]="pin.title" name="title" required />
+      </div>
+      
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Description</label>
+        <textarea class="form-control" rows="4" placeholder="Tell everyone what your Pin is about" [(ngModel)]="pin.description" name="description"></textarea>
+      </div>
+
+      <div *ngIf="errorMessage" style="color: var(--primary-color); font-size: 14px; margin-bottom: 16px;">
+        {{ errorMessage }}
+      </div>
+
+      <div class="form-group">
+        <label style="font-size: 14px; margin-bottom: 8px; display: block;">Board</label>
+        <select class="form-control" [(ngModel)]="pin.boardId" name="boardId">
+          <option [value]="null">Select a board</option>
+          <option *ngFor="let board of boards" [value]="board.boardId">{{ board.name }}</option>
+        </select>
+      </div>
+
+      <div style="margin-top: 32px; display: flex; justify-content: flex-end;">
+        <button type="submit" class="btn btn-primary" style="padding: 12px 32px;">Save Pin</button>
+      </div>
+    </form>
+  </div>
+</div>

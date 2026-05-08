@@ -1,0 +1,31 @@
+<div class="profile-header">
+  <div class="avatar">{{ user.fullName?.charAt(0) || 'U' }}</div>
+  <h1 style="font-size: 36px; margin: 16px 0 8px 0;">{{ user.fullName }}</h1>
+  <p style="color: var(--text-muted); margin-bottom: 16px;">&#64;{{ user.userName }}</p>
+  
+  <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+    <span style="font-weight: 600;">{{ followersCount }} <span style="font-weight: normal; color: var(--text-muted);">followers</span></span>
+    <span style="font-weight: 600;">{{ followingCount }} <span style="font-weight: normal; color: var(--text-muted);">following</span></span>
+  </div>
+
+  <div style="display: flex; gap: 12px;">
+    <button class="btn btn-secondary">Share</button>
+    <button class="btn btn-secondary">Edit Profile</button>
+  </div>
+</div>
+
+<div class="profile-tabs">
+  <button class="tab active">Created</button>
+  <button class="tab">Saved</button>
+</div>
+
+<div class="masonry-grid" style="margin-top: 24px;">
+  <div class="masonry-item" *ngFor="let pin of userPins">
+    <img [src]="pin.imageUrl" alt="Pin" />
+    <div class="overlay">
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="btn btn-primary" style="padding: 6px 12px; font-size: 14px;">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
